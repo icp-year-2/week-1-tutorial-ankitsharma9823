@@ -30,6 +30,10 @@ public class Topic {
     //
     // Hint: private int id;
     // ============================================================
+    private int id;
+    private String name;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 
 
@@ -52,7 +56,13 @@ public class Topic {
     //       this.updatedAt = now;
     //   }
     // ============================================================
-
+    public Topic(int id, String name){
+        this.id = id;
+        this.name = name;
+        LocalDateTime now = LocalDateTime.now();
+        this.createdAt =now;
+        this.updatedAt = now;
+    }
 
 
     // ============================================================
@@ -71,10 +81,25 @@ public class Topic {
     //       this.updatedAt = LocalDateTime.now();
     //   }
     // ============================================================
+    public int getId() {
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
+    }
+    public void setName(String name){
+        this.name =name;
+        this.updatedAt = LocalDateTime.now();
+    }
 
-
-    // ============================================================
+// ============================================================
     // TODO 4: Override toString() (+20 XP — ACHIEVEMENT: Architect!)
     // ============================================================
     // Return a readable string like:
@@ -83,5 +108,8 @@ public class Topic {
     // Hint: return "[" + id + "] " + name + " (Created: " + createdAt + ")";
     // ============================================================
 
-
+    @Override
+    public String toString() {
+        return "[" + id + "] " + name + " (Created: " + createdAt + ")";
+    }
 }
